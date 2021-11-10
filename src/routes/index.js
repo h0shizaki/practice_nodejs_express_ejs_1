@@ -7,9 +7,5 @@ module.exports = {
             data: ''
         })
     },
-    testPost : (req, res)=>{
-        console.log(req.body)
-        
-        res.redirect('/')
-    }
+
 }
