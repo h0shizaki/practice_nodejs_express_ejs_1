@@ -1,0 +1,34 @@
+<%- include('partials/header.ejs') -%>
+<div class="conatiner" style="text-align: center;padding-top: 0.5em;">    
+    <h3>ADD SONG</h3>
+    <div class="container" style="text-align: right;"> 
+        <a href='../' class="btn btn-primary" style="margin: 1em;">Back</a>
+    </div>
+</div>
+
+<div class="container" style="width: 60%;padding: 1em;">
+    <form action='add' method="POST" class="form form-control">
+        <label><h3>Song infomation</h3> </label><br><br>
+        <label> <h5>Song Name: </h5></label>
+        <input type="text" name="songName" class="form form-control" required style="width: 80%;margin-left:6em;"><br>
+
+        <label> <h5>Band Name: </h5></label>
+        <input type="text" name="bandName" class="form form-control" required style="width: 80%;margin-left:6em;"><br>
+
+        <label> <h5>Language: </h5></label>
+        <select name='lang' class="form form-control" required style="width: 80%;margin-left:6em;">
+            <option value="" selected>Select here</option>
+            <option value="EN">English</option>
+            <option value="JP">Japanese</option>
+            <option value="KR">Korea</option>
+            <option value="TH">Thai</option>
+        </select>
+        <br>
+        <label> <h5>Thumbnail url: </h5></label>
+        <input type="text" name="thumbnail_url" class="form form-control" required style="width: 80%;margin-left:6em;"><br>
+
+    </form>
+</div>
+
+</body>
+</html>
