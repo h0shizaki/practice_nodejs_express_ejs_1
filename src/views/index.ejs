@@ -7,5 +7,42 @@
     </div>
 </div>
 
+<div class="container">
+    <% if(data.length == 0) { %>
+        <h4>There are not any song <br>
+        Please <a href='./add'>add it</a></h4>
+    <%} else{%>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td class="thumbnail">Thumbnail</td>
+                    <td>Song name</td>
+                    <td>Band name</td>
+                    <td>Language</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach( song=>{ %>
+                    <tr>
+                        <td><%=song.id%></td>
+                        <td class='thumbnail'><img src="<%=song.thumbnail_url%>"></td>
+                        <td><%=song.name%></td>
+                        <td><%=song.band%></td>
+                        <td><%=song.lang%></td>
+                        <td><a href='./edit?id=<%=song.id%>' class="btn btn-warning">Edit</a></td>
+                        <td><a href='./del?id=<%=song.id%>' class="btn btn-danger">Delete</a></td>
+                    </tr>
+                <%})%>
+
+            </tbody>
+    </table>
+    <%}%>
+    
+        
+</div>
+
 </body>
 </html>

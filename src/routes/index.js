@@ -1,11 +1,17 @@
 const dbCon = require("../connection/connection");
 
 module.exports = {
-    getIndex : (req, res)=>{
-        res.render('index.ejs' , {
-            title: "Index",
-            data: ''
+    getIndex : async(req, res)=>{
+        await dbCon.query('SELECT * FROM music', (error, result)=>{
+            if(error) throw error;
+
+            res.render('index.ejs' , {
+                title: "Index",
+                data: result
+            })
         })
+
+
     },
 
 }
