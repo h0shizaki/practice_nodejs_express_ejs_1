@@ -47,6 +47,14 @@ module.exports = {
             if(error) throw error;
             res.redirect('/')
         })
+    },
+
+    delSong : async(req, res)=>{
+        const id = req.params.id ;
+        await dbCon.query("DELETE FROM music WHERE id = ?",id, (error, result, field)=>{
+            if(error) throw error;
+            res.redirect('/');
+        })
     }
 
 }
