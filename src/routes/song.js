@@ -25,6 +25,15 @@ module.exports = {
         )
     },
     editSong : async(req, res)=>{
-        
+        let id = req.params.id ;
+        await dbCon.query("SELECT * FROM music WHERE id = ?", id , (error, result, field)=>{
+            if(error) throw error ;
+            res.render('editSong.ejs',{
+                title: 'Edit Song',
+                data: result
+            })
+        })
+
+
     }
 }

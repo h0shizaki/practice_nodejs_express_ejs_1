@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs') -%>
+<div class="conatiner" style="text-align: center;padding-top: 0.5em;">    
+    <h3>EDIT SONG</h3>
+    <div class="container" style="text-align: right;"> 
+        <a href='../' class="btn btn-primary" style="margin: 1em;">Back</a>
+    </div>
+</div>
+
+<div class="container" style="width: 60%;padding: 1em;">
+    <form action='put' method="POST" class="form form-control">
+        <label><h3>Song infomation</h3> </label><br><br>
+        <label> <h5>Song Name: </h5></label>
+        <input type="text" name="songName" value="<%= data[0].name%>" class="form form-control" required style="width: 80%;margin-left:6em;"><br>
+
+        <label> <h5>Band or Singer Name: </h5></label>
+        <input type="text" name="bandName" value="<%= data[0].band%>" class="form form-control" required style="width: 80%;margin-left:6em;"><br>
+
+        <label> <h5>Language: </h5></label>
+        <select name='lang' class="form form-control" required style="width: 80%;margin-left:6em;">
+            <option value="EN" <%if(data[0].lang === "EN"){%> selected <%}%> >English</option>
+            <option value="JP" <%if(data[0].lang === "JP"){%> selected <%}%> >Japanese</option>
+            <option value="KR" <%if(data[0].lang === "KR"){%> selected <%}%> >Korea</option>
+            <option value="TH" <%if(data[0].lang === "TH"){%> selected <%}%> >Thai</option>
+        </select>
+
+        <input type="hidden" value="<%= data[0].id%>" name="songId">
+
+        <br>
+        <label> <h5>Thumbnail url: </h5></label>
+        <input type="text" value="<%= data[0].thumbnail_url%>" name="thumbnail_url" class="form form-control" required style="width: 80%;margin-left:6em;"><br>
+
+        <button class='btn btn-warning' type="submit" style="margin-bottom: 1em;">Edit</button>
+    </form>
+</div>
+
+</body>
+</html>
