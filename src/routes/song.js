@@ -33,7 +33,20 @@ module.exports = {
                 data: result
             })
         })
+    },
 
+    putSong : async(req, res)=>{
+        const id = req.body.songId;
+        const songName = req.body.songName;
+        const bandName = req.body.bandName;
+        const lang = req.body.lang;
+        const thumbnail_url = req.body.thumbnail_url;
 
+        await dbCon.query("UPDATE music SET name = ?, band = ?, lang = ?, thumbnail_url = ? WHERE id = ?", 
+        [songName, bandName, lang, thumbnail_url, id] , (error, result, field)=>{
+            if(error) throw error;
+            res.redirect('/')
+        })
     }
+
 }
